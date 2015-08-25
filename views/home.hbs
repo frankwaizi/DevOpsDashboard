@@ -1,0 +1,325 @@
+<!-- Main content -->
+<section id="chart" class="content">
+   <!-- Small boxes (Stat box) -->
+<div class="row">
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>
+                    {{activeTenantCount}}
+                </h3>
+                <p>
+                    Active Tenants
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#activeTenantList" id="activeTenantBox" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div><!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+            
+                <h3>
+                    {{activeUserCount}}
+                </h3>
+                <p>
+                    Active Users
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#activeUserList" id="activeUserBox" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div><!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+            <div class="inner">
+                <h3>
+                    {{newTenantCount}}
+                </h3>
+                <p>
+                    New Tenants
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#newTenantChart" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div><!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <h3>
+                    {{newUserCount}}
+                </h3>
+                <p>
+                    New Users
+                </p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-ios7-briefcase-outline"></i>
+            </div>
+            <a href="#newUserChart" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div><!-- ./col -->
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- DONUT CHART -->
+        <div class="box box-danger">
+            <div class="box-header">
+                <h3 class="box-title">当日活跃 Tenant/User</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="col-lg-6">
+                    <div class="chart" id="tenant-donutchart" style="height: 300px; position: relative;"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chart" id="user-donutchart" style="height: 300px; position: relative;"></div>
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- BAR CHART -->
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">七日活跃 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="bar-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 connectedSortable">
+        <!-- LINE CHART -->
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">七日活跃 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="line-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- BAR CHART -->
+        <div id="newTenantChart" class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">七日新增 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="weeklynew-bar-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- LINE CHART -->
+        <div id="newUserChart" class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">七日新增 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="weeklynew-line-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- BAR CHART -->
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">七日总数 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="weeklytotal-bar-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+    <div class="col-md-6 col-xs-12 connectedSortable">
+        <!-- LINE CHART -->
+        <div class="box box-info">
+            <div class="box-header">
+                <h3 class="box-title">七日总数 Tenant/用户</h3>
+            </div>
+            <div class="box-body chart-responsive">
+                <div class="chart" id="weeklytotal-line-chart" style="height: 300px;"></div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+
+<!-- Main row -->
+<div class="row">
+
+</div><!-- /.row (main row) -->
+
+</section><!-- /.content -->
+
+<section id="table" class="content" style="display: none">
+    <div class="row">
+        <div class="col-md-6 col-xs-12 connectedSortable">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h3 class="box-title">Top Active Tenants</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table id="activeTenantList" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Tenant ID</th>
+                                <th>Company ID</th>
+                                <th>Company Name</th>
+                                <th style="width: 40px">Number</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each todayActiveTenants}}
+                            <tr>
+                                <td>{{addOne @index}}.</td>
+                                <td>{{this.tenantId}}</td>
+                                <td>{{this.companyId}}</td>
+                                <td>{{this.companyName}}</td>
+                                <td><span class="badge bg-red">{{this.count}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Tenant ID</th>
+                                <th>Company ID</th>
+                                <th>Company Name</th>
+                                <th style="width: 40px">Number</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+
+        <div class="col-md-6 col-xs-12 connectedSortable">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Top Active Companies</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table id="activeCompanyList" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Company ID</th>
+                                <th>Company Name</th>
+                                <th style="width: 40px">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each groupUsers}}
+                            <tr>
+                                <td>{{addOne @index}}.</td>
+                                <td>{{this.id}}</td>
+                                <td>{{this.name}}</td>
+                                <td><span class="badge bg-light-blue">{{this.count}}</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Company ID</th>
+                                <th>Company Name</th>
+                                <th style="width: 40px">Amount</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 connectedSortable">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Active User List</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table id="activeUserList" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>Company</th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>LastLogin</th>
+                                <th>UserCreate</th>
+                                <th>KeyUser</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each todayActiveUsers}}
+                            <tr>
+                                <td>{{addOne @index}}.</td>
+                                <td>{{this.customerId}}</td>
+                                <td>{{this.customerName}}</td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.email}}</td>
+                                <td>{{this.phone}}</td>
+                                <td>{{this.lastLoginDate}}</td>
+                                <td>{{this.userCreateDate}}</td>
+                                {{#if this.isKeyUser}}
+                                <td><span class='label label-success'>Yes</span></td>
+                                {{else}}
+                                <td><span class='label label-danger'>No</span></td>
+                                {{/if}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>ID</th>
+                                <th>Company</th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>LastLogin</th>
+                                <th>UserCreate</th>
+                                <th>KeyUser</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+    </div>
+</section>

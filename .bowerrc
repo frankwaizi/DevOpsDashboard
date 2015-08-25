@@ -1,0 +1,5 @@
+{
+"proxy" : "",
+"https-proxy" : "",
+ "directory": "bower"
+}

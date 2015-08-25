@@ -1,2 +1,1 @@
-# DevOpsDashboard
 Dashboard for DevOps
